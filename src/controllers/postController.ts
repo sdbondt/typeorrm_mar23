@@ -10,7 +10,7 @@ const { CREATED, OK } = StatusCodes
 export const createPost = asyncHandler(async (req: AuthRequest, res: Response, next: NextFunction) => {
     const { content } = req.body
     const post = await Post.createPost(req.user, content)
-    res.status(CREATED).json({ post })
+    res.status(CREATED).json({ ...post, comments: [], user: req.user })
 })
 
 export const updatePost = asyncHandler(async (req: AuthRequest, res: Response, next: NextFunction) => {

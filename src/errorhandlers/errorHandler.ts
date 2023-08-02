@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from 'express'
 import { StatusCodes } from 'http-status-codes'
-import CustomError, { CustomErrorType } from './customError'
+import { CustomErrorType } from './customError'
 const { INTERNAL_SERVER_ERROR } = StatusCodes
 
 export type IError = Error | CustomErrorType

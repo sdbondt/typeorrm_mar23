@@ -39,7 +39,7 @@ export class Post extends Content {
         const post = await PostRepository.findOne(
             {
                 where: { id },
-                relations: ['user', 'comments']
+                relations: ['user', 'comments', 'comments.user']
             },
             )
         if (!post) throw new CustomError('No post found.', BAD_REQUEST)
